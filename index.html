@@ -130,8 +130,8 @@
 <pre>executor.connect(&quot;debian-vm&quot;, 22, &quot;cristian.sulea&quot;, &quot;password&quot;);
 </pre></div>
 <div class="source">
-<pre>executor.exec(&quot;mkdir TestFolder&quot;)
-executor.exec(&quot;rmdir TestFolder&quot;)
+<pre>executor.exec(&quot;mkdir TestFolder&quot;);
+executor.exec(&quot;rmdir TestFolder&quot;);
 
 executor.exec(&quot;ls&quot;, System.out);
 executor.exec(&quot;ls -l /&quot;, System.out);
