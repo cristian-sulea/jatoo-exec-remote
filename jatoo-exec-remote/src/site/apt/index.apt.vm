@@ -36,7 +36,7 @@ executor.exec("host", System.out);
 	Please check {{{./tutorial.html}the tutorial}} for more and detailed examples.
 
 
-* Download ( Version ${project.version}, July 28, 2014 )
+* Download ( Version ${project.version}, July 29, 2014 )
 	
 	Binaries
 		
@@ -67,15 +67,17 @@ executor.exec("host", System.out);
 
 * Contact
 	
- 	* For general information visit the project home page at:
+ 	* For general information visit one of the project home pages:
  		
  		* {{{http://${project.artifactId}.sourceforge.net}http://${project.artifactId}.sourceforge.net}}
+ 		
+ 		* {{{http://cristian-sulea.github.io/${project.artifactId}/}http://cristian-sulea.github.io/${project.artifactId}/}}
  		
  		[]
  	
  	[]
 	
- 	* For development information visit the summary page at:
+ 	* For development information visit the summary page:
  		
  		* {{{http://sourceforge.net/projects/${project.artifactId}/}http://sourceforge.net/projects/${project.artifactId}/}}
  		
@@ -88,6 +90,8 @@ executor.exec("host", System.out);
 		* {{{http://cristian.sulea.net}http://cristian.sulea.net}}
 		
 		* {{{http://sourceforge.net/users/cristian-sulea/}http://sourceforge.net/users/cristian-sulea/}}
+		
+		* {{{https://github.com/cristian-sulea}https://github.com/cristian-sulea}}		
 		
 		[]
 	
