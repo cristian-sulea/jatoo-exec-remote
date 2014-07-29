@@ -17,7 +17,8 @@
 	<name>JaToo Exec Remote</name>
 	<description>A free open source Java library created to ease the work with remote processes execution.</description>
 	<!-- <url>http://cristian.sulea.net/projects/jatoo-exec-remote/</url> -->
-	<url>http://jatoo-exec-remote.sourceforge.net</url>
+	<!-- <url>http://jatoo-exec-remote.sourceforge.net</url> -->
+	<url>http://cristian-sulea.github.io/jatoo-exec-remote/</url>
 
 	<inceptionYear>2013</inceptionYear>
 
