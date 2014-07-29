@@ -23,8 +23,8 @@ executor.connect("debian-vm", 22, "cristian.sulea", "password");
 +---+
 
 +---+
-executor.exec("mkdir TestFolder")
-executor.exec("rmdir TestFolder")
+executor.exec("mkdir TestFolder");
+executor.exec("rmdir TestFolder");
 
 executor.exec("ls", System.out);
 executor.exec("ls -l /", System.out);
