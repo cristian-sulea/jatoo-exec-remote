@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<parent>
+		<groupId>net.sulea.cristian</groupId>
+		<artifactId>projects</artifactId>
+		<relativePath>../../../../projects/Git Repositories/projects/projects/pom.xml</relativePath>
+		<version>1</version>
+	</parent>
+
+
+	<artifactId>jatoo-exec-remote</artifactId>
+	<version>4.0</version>
+
+
+	<name>JaToo Exec Remote</name>
+	<description>A free open source Java library created to ease the work with remote processes execution.</description>
+	<!-- <url>http://cristian.sulea.net/projects/jatoo-exec-remote/</url> -->
+	<url>http://jatoo-exec-remote.sourceforge.net</url>
+
+	<inceptionYear>2013</inceptionYear>
+
+
+	<distributionManagement>
+		<site>
+			<id>${distribution.site.id}</id>
+			<url>${distribution.site.url}/${project.artifactId}</url>
+		</site>
+	</distributionManagement>
+
+
+	<developers>
+		<developer>
+			<id>cristian.sulea</id>
+			<name>Cristian Sulea</name>
+			<email>cristian.sulea.79@gmail.com</email>
+			<url>http://cristian.sulea.net</url>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+3</timezone>
+		</developer>
+	</developers>
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<configuration>
+					<options>
+						<option>-keep public class * { public protected *; }</option>
+					</options>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<appendAssemblyId>true</appendAssemblyId>
+					<descriptors>
+						<descriptor>src/assembly/dist-bin.xml</descriptor>
+						<descriptor>src/assembly/dist-src.xml</descriptor>
+					</descriptors>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>jatoo-exec</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+		</dependency>
+
+	</dependencies>
+
+
+</project>

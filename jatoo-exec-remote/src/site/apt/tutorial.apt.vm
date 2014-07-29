@@ -1,0 +1,116 @@
+	-----
+	Tutorial
+	-----
+	Cristian Sulea
+	-----
+	2014-07-29
+	-----
+
+
+Tutorial
+
++---+
+RemoteCommandExecutor executor = new RemoteCommandExecutor();
+
+executor.connect("debian-vm", 22, "cristian.sulea", "password");
++---+
+
+
+* ls --help
+	
+	The command will use "System.out" as dump stream.
+
++---+
+executor.exec("ls --help", System.out);
++---+
+	
+	The output (on the console) is:
+
++---+
+Usage: ls [OPTION]... [FILE]...
+List information about the FILEs (the current directory by default).
+Sort entries alphabetically if none of -cftuvSUX nor --sort.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -a, --all                  do not ignore entries starting with .
+  -A, --almost-all           do not list implied . and ..
+      --author               with -l, print the author of each file
+  -b, --escape               print octal escapes for nongraphic characters
+      --block-size=SIZE      use SIZE-byte blocks.  See SIZE format below
+  -B, --ignore-backups       do not list implied entries ending with ~
+  -c                         with -lt: sort by, and show, ctime (time of last
+                               modification of file status information)
+                               with -l: show ctime and sort by name
+                               otherwise: sort by ctime
+...
++---+
+
+
+* ls -l /
+	
+	The command will use "System.out" as dump stream.
+
++---+
+executor.exec("ls -l /", System.out);
++---+
+	
+	The output (on the console) is:
+
++---+
+total 118
+dr-xr-xr-x.   2 root   root      4096 May  8 15:27 bin
+dr-xr-xr-x.   5 root   root      1024 May  8 14:53 boot
+drwxr-xr-x   18 root   root      3800 Jul 22 02:29 dev
+drwxr-xr-x. 110 root   root     12288 Jul 23 05:37 etc
+drwxr-xr-x.  14 root   root      4096 May  9 11:23 home
+drwxrwxrwx   16 root   root      4096 May  7 16:30 img
+dr-xr-xr-x.  13 root   root      4096 May  7 12:33 lib
+dr-xr-xr-x.   9 root   root     12288 May  7 12:34 lib64
+drwx------.   2 root   root     16384 May  2 14:33 lost+found
+drwxr-xr-x.   2 root   root      4096 Jul  8 04:28 media
+drwxr-xr-x.   4 root   root      4096 May  6 10:15 mnt
+drwxr-xr-x.   6 root   root      4096 May  8 16:01 opt
+dr-xr-xr-x  465 root   root         0 Jul 21 22:29 proc
+dr-xr-x---.  30 root   root      4096 Jul 16 07:00 root
+dr-xr-xr-x.   2 root   root     12288 May  7 12:34 sbin
+drwxrwxrwx    7 root   root      4096 May  8 16:09 scripts
+drwxr-xr-x.   2 root   root      4096 May  2 14:33 selinux
+drwxr-xr-x.   2 root   root      4096 Jun 28  2011 srv
+drwxr-xr-x   13 root   root         0 Jul 21 22:29 sys
+drwxrwxrwx.  19 root   root      4096 Jul 29 07:10 tmp
+drwxr-xr-x.  14 root   root      4096 May  7 12:17 usr
+drwxr-xr-x.  23 root   root      4096 May  8 15:27 var
++---+
+
+
+* Chained list of commands
+	
+	All the commands are executed using "System.out" as dump stream.
+
++---+
+executor.exec("rmdir test", System.out);
+
+executor.exec("rm test/**", System.out);
+executor.exec("rmdir test", System.out);
+executor.exec("mkdir test", System.out);
+
+executor.exec("mkdir test", System.out);
+
+executor.exec("ls -1 test | wc -l", System.out);
+
+executor.exec("ls -l / > test/list.txt", System.out);
+
+executor.exec("ls -1 test | wc -l", System.out);
+
+executor.exec("ls -l test", System.out);
++---+
+	
+	The output (on the console) is:
+
++---+
+rmdir: failed to remove `test': Directory not empty
+mkdir: cannot create directory `test': File exists
+0
+1
+-rw-rw-r-- 1 dev8081 dev8081 1354 Jul 29 07:28 list.txt
++---+
