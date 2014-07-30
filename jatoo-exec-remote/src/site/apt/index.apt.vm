@@ -12,7 +12,7 @@ JaToo Exec Remote
 	A free open source Java library created to ease the work with remote processes execution.
 
 
-* Quick start
+* Usage
 
 +---+
 RemoteCommandExecutor executor = new RemoteCommandExecutor();
